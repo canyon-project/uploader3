@@ -1,6 +1,6 @@
 import fs from 'fs';
 import istanbulLibCoverage from "istanbul-lib-coverage";
-
+import axios from "axios";
 const initialCoverage = istanbulLibCoverage.createCoverageMap({})
 
 
@@ -36,7 +36,6 @@ const proxy = (process.env.CI_SERVER_URL || '').includes(newatob('Y3RyaXA=')) ? 
   }
 } : {}
 try {
-  const axios = require('axios')
   axios.post(canyon.dsn.replace('https://','http://'), {
     coverage: initialCoverage.toJSON(),
     ...canyon
