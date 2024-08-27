@@ -18,18 +18,37 @@ fs.writeFileSync('./.canyon_output/coverage-final.json', JSON.stringify(initialC
 const canyon = JSON.parse(fs.readFileSync('./.canyon_output/canyon.json', 'utf-8'))
 
 
-console.log(canyon)
 
-fetch(canyon.dsn,{
-    method:'POST',
+function newAtob() {
+  try {
+    return typeof atob === 'function' ? atob : null
+  } catch (e) {
+    return null
+  }
+}
+const newatob = newAtob()
+
+const proxy = (process.env.CI_SERVER_URL || '').includes(newatob('Y3RyaXA=')) ? {
+  proxy: {
+    protocol: 'http',
+    host: newatob('cHJveHlnYXRlMi5jdHJpcGNvcnAuY29t'),
+    port: 8080
+  }
+} : {}
+try {
+  const axios = require('axios')
+  axios.post(canyon.dsn.replace('https://','http://'), {
+    coverage: initialCoverage.toJSON(),
+    ...canyon
+  }, {
     headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${canyon.reporter}`
+      Authorization: 'Bearer ' + canyon.reporter,
     },
-    body: JSON.stringify({
-        coverage: initialCoverage.toJSON(),
-        ...canyon
-    })
-}).then(r=>r.json()).then(r=>{
-    console.log(r)
-})
+    timeout: 15000,
+    ...proxy
+  }).catch(err=>{
+    console.log('Failed to post coverage data:', err)
+  })
+} catch (e) {
+  console.log('Failed to post coverage data:', e)
+}
