@@ -13,8 +13,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "peerDependencies":{
+  "peerDependencies": {
     "axios": "*",
     "istanbul-lib-coverage": "*"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
   }
 }
