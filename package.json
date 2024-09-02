@@ -1,14 +1,14 @@
 {
   "name": "canyon-uploader3",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
-  "main": "main.js",
+  "main": "lib/main.js",
   "type": "module",
   "scripts": {
     "build": "echo 'hi'"
   },
   "files": [
-    "main.js"
+    "lib"
   ],
   "keywords": [],
   "author": "",
