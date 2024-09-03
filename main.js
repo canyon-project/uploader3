@@ -1,8 +1,9 @@
 import { program } from "commander";
+import {uploadCanyonCoverage} from './lib/main.js'
 
 program
   .name("canyon")
-  .version('111', "-v, --version", "see the current version of canyon-cli")
+  .version('1.0.0', "-v, --version", "see the current version of canyon-cli")
   .usage("[options or commands] arguments")
   // .addHelpText("beforeAll", CLI_BEFORE_ALL_TXT)
   // .addHelpText("after", CLI_AFTER_ALL_TXT)
@@ -16,12 +17,12 @@ program
 
 
 
-function reset() {
-  console.log('sss?????')
+function upload() {
+  return uploadCanyonCoverage()
 }
 
 program
-  .command("reset").action(async () => await reset());
+  .command("upload").action(async () => await upload());
 
 
 export const cli = async (args) => {
