@@ -5,7 +5,12 @@
   "main": "lib/main.js",
   "type": "module",
   "scripts": {
-    "build": "echo 'hi'"
+    "build": "echo 'hi'",
+    "build-linux": "pkg . --targets linuxstatic --output out/codecov-linux",
+    "build-aarch64": "pkg . --targets linuxstatic-arm64 --output out/codecov-aarch64",
+    "build-macos": "pkg . --targets macos-arm64 --output out/codecov-macos",
+    "build-alpine": "pkg . --targets node14-alpine-x64 --output out/codecov-alpine",
+    "build-windows": "pkg . --targets win --output out/codecov.exe"
   },
   "bin": {
     "canyon-uploader3": "bin/uploader3"
@@ -19,7 +24,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "commander": "*",
-    "axios": "*"
+    "axios": "*",
+    "commander": "*"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
   }
 }
