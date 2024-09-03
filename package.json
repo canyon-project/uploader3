@@ -1,6 +1,6 @@
 {
   "name": "canyon-uploader3",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "main": "lib/main.js",
   "type": "module",
@@ -13,11 +13,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "peerDependencies": {
+  "dependencies": {
+    "commander": "*",
     "axios": "*",
     "istanbul-lib-coverage": "*"
-  },
-  "dependencies": {
-    "commander": "^12.1.0"
   }
 }
