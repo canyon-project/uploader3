@@ -1,6 +1,6 @@
 {
   "name": "canyon-uploader3",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "",
   "main": "lib/main.js",
   "type": "module",
