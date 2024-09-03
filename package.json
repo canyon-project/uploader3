@@ -1,11 +1,14 @@
 {
   "name": "canyon-uploader3",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "",
   "main": "lib/main.js",
   "type": "module",
   "scripts": {
     "build": "echo 'hi'"
+  },
+  "bin": {
+    "canyon-uploader3": "bin/uploader3"
   },
   "files": [
     "lib"
